@@ -1,0 +1,239 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #52606d;
+  --accent: #2563eb;
+  --border: #e5e7eb;
+  --success: #047857;
+  --warning: #eab308;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-inter, "Inter"), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  padding: 3.5rem 1.75rem 2rem;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 720px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.main {
+  padding: 0 1.75rem 3.5rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: -3.2rem;
+  margin-bottom: 1.75rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.metrics + .card {
+  margin-top: 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.metric {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.metric-label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.list li {
+  margin-bottom: 0.55rem;
+}
+
+.timeline {
+  counter-reset: stage;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.75rem;
+  margin-bottom: 1.8rem;
+}
+
+.timeline-item::before {
+  counter-increment: stage;
+  content: counter(stage);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.timeline-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 8px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1.25rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: rgba(37, 99, 235, 0.1);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.table-bold td {
+  font-weight: 600;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.85));
+  color: #fff;
+  border-radius: 18px;
+  padding: 2rem;
+  border: none;
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.3);
+  margin-top: 1.5rem;
+}
+
+.cta ul {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .page-header {
+    padding: 2.5rem 1.25rem 1.75rem;
+  }
+
+  .card {
+    padding: 1.35rem;
+  }
+
+  .timeline-item {
+    padding-left: 2.35rem;
+  }
+
+  .timeline-item::before {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}
+
